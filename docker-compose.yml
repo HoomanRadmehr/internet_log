@@ -1,0 +1,14 @@
+version: '3.6'
+
+services:
+  internet_log:
+    build: .
+    environment:
+      - PERIDIC_TASK_RUN=60
+    volumes:
+      - ./configs/sarg.conf:/etc/sarg/sarg.conf
+      - ./configs/nginx.conf:/etc/nginx/nginx.conf
+      - ./configs/squid.conf:/etc/squid/squid.conf
+    ports:
+      - '3128:3128'
+      - '80:80'
